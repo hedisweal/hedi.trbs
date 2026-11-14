@@ -163,10 +163,14 @@ h2 {
 
 .poster-star {
   left: 0;
+  right: 0;
   width: 100%;
+  display: block;
   text-align: center;
-  font-size: clamp(6rem, 10vw, 10rem);
-  transform: rotate(-8deg);
+  font-size: clamp(7rem, 11vw, 10rem);
+  line-height: .85;
+  transform: skewX(4deg) rotate(-8deg) scaleX(1.08);
+  transform-origin: center;
   white-space: nowrap;
 }
 

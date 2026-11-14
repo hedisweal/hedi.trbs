@@ -3,214 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hedi Trabelsi — Technical Minimalism Portfolio</title>
-    <meta
-      name="description"
-      content="Portfolio of Hedi Trabelsi — Technical Computer Science student focused on systems, security, full-stack engineering, and philosophy."
-    />
+    <meta name="description" content="Hedi Trabelsi — Technical Computer Science portfolio." />
+    <title>HEDI TRABELSI // PHANTOM PROFILE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="polish.css" />
+    <style>
+      .stat-row i { background: linear-gradient(90deg, var(--accent) calc(var(--level) * 1%), #303038 0); }
+      .stat-row i::after { display: none; }
+      .award em { display: block; margin-top: 8px; color: #d7d7dc; font: 400 .68rem/1.45 var(--font-body); }
+    </style>
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="page-shell">
-      <header class="sr-only">
-        <h1>Hedi Trabelsi Portfolio</h1>
-      </header>
+    <div class="background-shards" aria-hidden="true"><i></i><i></i><i></i><i></i><svg viewBox="0 0 160 160"><path d="M80 5l9 54 46-29-29 46 49 9-49 9 29 46-46-29-9 54-9-54-46 29 29-46-49-9 49-9-29-46 46 29z"/></svg></div>
+    <div id="screen-wipe" class="screen-wipe" aria-hidden="true"><span></span><i></i></div>
 
-      <main class="bento-grid" id="portfolio-grid">
-        <section class="card hero-card" aria-labelledby="hero-title">
-          <div class="hero-heading">
-            <div>
-              <h2 id="hero-title">Hedi Trabelsi</h2>
-              <span class="badge">He/Him</span>
-            </div>
-            <p class="headline">
-              BSc Technical Computer Science Student @ University of Twente | Philosophy Track Student Ambassador
-              (2026–2027) @ Honours Association Ockham
-            </p>
-          </div>
-
-          <p class="hero-summary">
-            I build at the intersection of low-level systems engineering, network security, and pragmatic full-stack
-            software for real-world constraints. My work is grounded in ethical and philosophical inquiry so technical
-            architecture remains accountable, human-centered, and durable.
-          </p>
-
-          <div class="hero-status-row">
-            <div class="status-chip">
-              <span class="status-dot" aria-hidden="true"></span>
-              <span>Enschede, Overijssel, Netherlands</span>
-            </div>
-            <time id="live-clock" datetime="" aria-live="polite">--:--:--</time>
-          </div>
-
-          <div class="cta-row">
-            <button id="copy-email" class="button button-primary" type="button">Copy Email</button>
-            <a class="button" href="https://www.linkedin.com/in/hedi-trabelsi-0a0081241/" target="_blank" rel="noreferrer"
-              >LinkedIn</a
-            >
-            <button id="open-writing" class="button" type="button">Selected Writing</button>
-          </div>
-
-          <ul class="highlights" aria-label="Education and honors highlights">
-            <li>BSc TCS @ UTwente</li>
-            <li>Honours Philosophy Ambassador 26–27</li>
-            <li>Bac 17/20</li>
-          </ul>
-        </section>
-
-        <section class="card market-card" aria-labelledby="market-title">
-          <div class="card-head">
-            <h2 id="market-title">Ockham Beer Stock Market Simulator</h2>
-            <span class="meta">Node.js · Express · Socket.io · SQLite · Vue 3</span>
-          </div>
-          <p class="card-copy">
-            Inspired by my real-time WebSocket pricing app for Ockham's Dricie committee. Buy pressure raises local
-            demand while redistributing market prices across the board.
-          </p>
-
-          <svg class="sparkline" viewBox="0 0 360 88" role="img" aria-label="Market trend sparkline">
-            <polyline id="market-line" points="" />
-          </svg>
-
-          <div class="market-meta">
-            <span>Next tick in <strong id="tick-countdown">5s</strong></span>
-            <button class="button crash" id="market-crash" type="button">Market Crash</button>
-          </div>
-
-          <ul class="drink-list" id="drink-list"></ul>
-        </section>
-
-        <section class="card projects-card" aria-labelledby="projects-title">
-          <div class="card-head">
-            <h2 id="projects-title">Engineering, Systems & Hackathon Projects</h2>
-            <div class="filter-row" role="tablist" aria-label="Project categories">
-              <button class="filter active" type="button" data-filter="all">All</button>
-              <button class="filter" type="button" data-filter="systems">Systems & Security</button>
-              <button class="filter" type="button" data-filter="ai">AI & Hardware</button>
-              <button class="filter" type="button" data-filter="fullstack">Full-Stack & Games</button>
-            </div>
-          </div>
-          <div class="project-grid" id="project-grid"></div>
-        </section>
-
-        <section class="card skills-card" aria-labelledby="skills-title">
-          <div class="card-head">
-            <h2 id="skills-title">Tech Stack & Skills</h2>
-          </div>
-          <div class="skill-groups">
-            <article>
-              <h3>Languages & Low-Level</h3>
-              <div class="tags">
-                <span>C</span><span>C++</span><span>Java</span><span>Python</span><span>Assembly (MIPS/Hack)</span
-                ><span>HDL</span><span>Solidity</span>
-              </div>
-            </article>
-            <article>
-              <h3>Web & Databases</h3>
-              <div class="tags">
-                <span>JavaScript</span><span>Vue.js</span><span>Node.js</span><span>Express</span><span>SQL</span
-                ><span>PostgreSQL</span><span>SQLite</span><span>HTML/CSS</span>
-              </div>
-            </article>
-            <article>
-              <h3>Tools & Networking</h3>
-              <div class="tags">
-                <span>Linux</span><span>Wireshark</span><span>Filius</span><span>Git</span><span>LaTeX</span
-                ><span>Overleaf</span>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="card education-card" aria-labelledby="education-title">
-          <div class="card-head">
-            <h2 id="education-title">Education, Honors & Leadership</h2>
-          </div>
-          <div class="timeline">
-            <article>
-              <h3>University of Twente — Bachelor's in Technical Computer Science</h3>
-              <p class="meta">Sept 2025 – Aug 2028 · Enschede, Netherlands</p>
-              <p>Activities: Inter-Actief (study association), Honours Association Ockham.</p>
-            </article>
-            <article>
-              <h3>University of Twente — Honours Programme in Philosophy</h3>
-              <p class="meta">Selected / Issued Feb 2026</p>
-            </article>
-            <article>
-              <h3>Lycée Gustave Flaubert (La Marsa, Tunisia)</h3>
-              <p class="meta">2013 – June 2025 · French Baccalauréat Général</p>
-              <p>
-                Mathematics & Computer Science with Mathématiques Expertes — Grade 17/20 (Mention Très Bien). Activities:
-                Tounes El Khadhra, Club Inge.
-              </p>
-            </article>
-            <article>
-              <h3>Honours Association Ockham — Philosophy Track Student Ambassador</h3>
-              <p class="meta">Oct 2026 – Present</p>
-              <p>Liaison between Ockham board, Honours Office, track teachers, and fellow ambassadors.</p>
-            </article>
-            <article>
-              <h3>Dricie Committee (Ockham)</h3>
-              <p class="meta">Campus events</p>
-              <p>Event organization and full-stack engineering for campus social events.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="card contact-card" aria-labelledby="contact-title">
-          <div class="card-head">
-            <h2 id="contact-title">Contact, Socials & Languages</h2>
-          </div>
-          <ul class="contact-list">
-            <li><span>Email</span> <a href="mailto:heditrabelsi07@gmail.com">heditrabelsi07@gmail.com</a></li>
-            <li>
-              <span>LinkedIn</span>
-              <a href="https://www.linkedin.com/in/hedi-trabelsi-0a0081241/" target="_blank" rel="noreferrer"
-                >/in/hedi-trabelsi-0a0081241</a
-              >
-            </li>
-            <li><span>Instagram</span> <a href="https://instagram.com/hedi.trbs" target="_blank" rel="noreferrer">@hedi.trbs</a></li>
-            <li><span>GitHub</span> <a href="#" aria-label="GitHub placeholder link">Add repo URL</a></li>
-            <li><span>GitLab</span> <a href="#" aria-label="GitLab placeholder link">Add repo URL</a></li>
-          </ul>
-          <ul class="language-list">
-            <li>French — Native</li>
-            <li>English — Professional Working Proficiency (Duolingo 129)</li>
-            <li>Spanish — Limited Working Proficiency (Duolingo 60)</li>
-            <li>Dutch — Elementary</li>
-          </ul>
-        </section>
-
-        <section class="card writing-card" aria-labelledby="writing-title">
-          <div class="card-head">
-            <h2 id="writing-title">Selected Writing & Philosophy</h2>
-          </div>
-          <ul id="writing-list" class="writing-list"></ul>
-        </section>
-      </main>
-    </div>
-
-    <aside id="essay-drawer" class="drawer" aria-hidden="true" aria-labelledby="drawer-title" role="dialog">
-      <div class="drawer-panel">
-        <button id="close-drawer" class="drawer-close" type="button" aria-label="Close reading drawer">×</button>
-        <h2 id="drawer-title"></h2>
-        <p class="meta" id="drawer-readtime"></p>
-        <h3>Abstract</h3>
-        <p id="drawer-abstract"></p>
-        <h3>Key Thesis</h3>
-        <p id="drawer-thesis"></p>
+    <header class="hud">
+      <div class="calendar">
+        <span class="hud-label">PHANTOM LOG // DATE</span>
+        <strong id="hud-date">11 / 14 SAT</strong>
+        <time id="hud-clock" datetime="">ENSCHEDE, NL // --:--:--</time>
+        <span class="weather">✦ CLEAR // ONLINE</span>
       </div>
-      <button id="drawer-backdrop" class="drawer-backdrop" type="button" aria-label="Close drawer backdrop"></button>
-    </aside>
+      <div class="hud-brand">HEDI<span>.TRBS</span><small>PERSONA PROFILE</small></div>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">[ P3 RELOAD CYAN ]</button>
+    </header>
 
-    <div id="toast" class="toast" role="status" aria-live="polite">Copied email to clipboard</div>
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">MENU <b>☰</b></button>
+    <nav id="main-nav" class="main-nav" aria-label="Primary navigation">
+      <p class="nav-caption">SELECT YOUR DESTINATION</p>
+      <button class="nav-item active" type="button" data-view="profile"><b>01</b><span>PROFILE</span><i>↗</i></button>
+      <button class="nav-item" type="button" data-view="missions"><b>02</b><span>MISSIONS</span><i>↗</i></button>
+      <button class="nav-item" type="button" data-view="social"><b>03</b><span>SOCIAL STATS</span><i>↗</i></button>
+      <button class="nav-item" type="button" data-view="academia"><b>04</b><span>ACADEMIA</span><i>↗</i></button>
+      <button class="nav-item" type="button" data-view="contact"><b>05</b><span>CONTACT</span><i>↗</i></button>
+    </nav>
 
-    <script src="app.js" defer></script>
+    <main>
+      <section id="profile" class="view active" aria-labelledby="profile-title">
+        <div class="section-kicker">01 // PROFILE <span>ARCANA: THE ENGINEER</span></div>
+        <div class="profile-layout">
+          <div class="profile-intro">
+            <p class="identity">TUNISIAN BELGIAN <span>· HE / HIM</span></p>
+            <h1 id="profile-title"><span>HEDI</span><em>TRABELSI</em></h1>
+            <p class="profile-title">Curiosity fuels my Knowledge, human interaction shapes my Charm, and building systems sharpens my Proficiency.</p>
+            <blockquote>I'm Hedi, a curious and insightful human being eager for knowledge and human interaction. I have always wanted to create new things and become a kind of inventor. In high school, I discovered through my Computer Science speciality a passion for computer science and decided to pursue my studies at the University of Twente in this domain.</blockquote>
+            <div class="profile-actions"><button id="copy-email" class="red-button" type="button">COPY EMAIL <span>↗</span></button><a class="white-button" href="https://www.linkedin.com/in/hedi-trabelsi-0a0081241/" target="_blank" rel="noreferrer">LINKEDIN ↗</a></div>
+          </div>
+          <div class="profile-poster" aria-label="Hedi Trabelsi profile graphic">
+            <div class="poster-star">H</div><div class="poster-name">HEDI<br /><b>TRABELSI</b></div><div class="poster-code">TECHNICAL<br />COMPUTER SCIENCE</div><svg viewBox="0 0 300 380" aria-hidden="true"><path d="M0 310L130 0h170L155 380H0z"/><path d="M40 340L205 25M105 365L270 45" /></svg>
+            <strong class="poster-sfx">READY?</strong>
+          </div>
+        </div>
+        <div class="profile-grid">
+          <article class="shard-card red-shard"><span class="card-index">01-A</span><h2>EXPERIENCE<br /><b>&amp; LEADERSHIP</b></h2><div class="role"><strong>Ambassador of the Honours Philosophy Track</strong><small>Honours Association Ockham · Oct 2026 – Present · Enschede, Netherlands</small><p>Appointed Philosophy Track Student Ambassador for the 2026–2027 cohort at University of Twente, acting as a link between Ockham's Board, the Honours Office, track teachers, and fellow ambassadors.</p><div class="chips"><span>Member Relations</span><span>Membership Building</span><span>Committees</span></div></div><div class="role"><strong>Technical Computer Science Student</strong><small>University of Twente · Sep 2025 – Present · Enschede, Netherlands</small><p>Building foundations through modules in software, network, data and information, and computer systems.</p></div></article>
+          <article class="shard-card white-shard"><span class="card-index">01-B</span><h2>STATUS<br /><b>ONLINE</b></h2><div class="status-list"><p><span>LOCATION</span>Enschede, Overijssel, Netherlands</p><p><span>FOCUS</span>Innovation · Problem-solving · Coding · Thinking</p><p><span>CONTACT</span>Available through the signal panel</p></div><div class="mini-star">✦</div></article>
+        </div>
+      </section>
+
+      <section id="missions" class="view" aria-labelledby="missions-title">
+        <div class="section-kicker">02 // MISSIONS <span>CONFIDANT DOSSIERS</span></div>
+        <div class="view-heading"><h2 id="missions-title">MISSION<br /><em>SELECT</em></h2><p>SELECT A DOSSIER TO OPEN THE ARCHIVE.</p></div>
+        <div id="mission-list" class="mission-grid"></div>
+      </section>
+
+      <section id="social" class="view" aria-labelledby="social-title">
+        <div class="section-kicker">03 // SOCIAL STATS <span>ABILITY PARAMETERS</span></div>
+        <div class="social-layout">
+          <article class="radar-card social-parameters-card"><h2 id="social-title">SOCIAL<br /><em>STATS</em></h2><p>PERSONA PARAMETERS // PROFILE SIGNAL</p><div class="social-parameters"><div class="parameter"><div><strong>KNOWLEDGE</strong><span>CURIOUS / THINKING</span></div><i class="parameter-fill high"></i></div><div class="parameter"><div><strong>PROFICIENCY</strong><span>BUILDING / SYSTEMS</span></div><i class="parameter-fill strong"></i></div><div class="parameter"><div><strong>CHARM</strong><span>HUMAN INTERACTION</span></div><i class="parameter-fill steady"></i></div></div><div class="parameter-note">A curious mind, an inventor's drive, and a human-centered signal.</div></article>
+          <article class="stats-card"><h2>LANGUAGES</h2><div class="stat-bars"><div class="stat-row"><div><b>French</b><span>NATIVE</span></div><i style="--level:100"></i></div><div class="stat-row"><div><b>Arabic</b><span>NATIVE</span></div><i style="--level:100"></i></div><div class="stat-row"><div><b>English</b><span>PROFESSIONAL · DUOLINGO 129 · JUL 2026</span></div><i style="--level:86"></i></div><div class="stat-row"><div><b>Spanish</b><span>LIMITED WORKING · DUOLINGO 60 · FEB 2026</span></div><i style="--level:52"></i></div><div class="stat-row"><div><b>Dutch</b><span>ELEMENTARY</span></div><i style="--level:30"></i></div></div><h2 class="skills-heading">SKILL SHARDS</h2><div class="chips skill-shards"><span>Python</span><span>Java</span><span>Software Systems</span><span>Network Systems</span><span>Cybersecurity</span><span>Data &amp; Information</span><span>Relational Databases</span><span>ESP32 &amp; LoRa</span><span>Computer Systems</span><span>Agile / Scrum</span><span>Mathematics</span><span>Member Relations</span><span>Committees</span></div></article>
+        </div>
+      </section>
+
+      <section id="academia" class="view" aria-labelledby="academia-title">
+        <div class="section-kicker">04 // ACADEMIA <span>TRAINING ARC</span></div>
+        <div class="view-heading"><h2 id="academia-title">ACADEMIA<br /><em>&amp; HONORS</em></h2></div>
+        <div class="academy-grid"><article class="academy-card"><span class="gold-badge">UT</span><h3>University of Twente</h3><p class="mono">BSc Technical Computer Science · Sep 2025 – Aug 2028</p><p>Activities: Inter-Actief, Ockham Honours Association.</p><p class="programme-note">Programme arc: software, network, data and information, and computer systems.</p><div class="award">HONOURS PROGRAMME IN PHILOSOPHY <small>Issued Feb 2026</small><em>Keeping high tech in touch with the human touch through primary sources and a Socratic attitude.</em></div></article><article class="academy-card"><span class="gold-badge score">17/20</span><h3>Lycée Gustave Flaubert, La Marsa</h3><p class="mono">French Baccalauréat Général, Mathematics &amp; Computer Science · 2013 – Jun 2025</p><p>Activities: TounesElKhadhra, Club Inge.</p><div class="award">GRADE: 17/20</div></article></div>
+        <section class="resource-panel" aria-labelledby="resources-title"><div class="resource-heading"><p class="mono">PUBLICATIONS &amp; LIVE PROJECTS</p><h3 id="resources-title">OPEN<br /><em>CHANNELS</em></h3></div><div class="resource-grid"><a class="resource-card" href="https://the-ockham-beer-stock-market.onrender.com" target="_blank" rel="noreferrer"><span>LIVE PROJECT ↗</span><strong>Ockham Beer Stock Market</strong><small>Open the deployed experience</small></a><a class="resource-card" href="https://docs.google.com/document/d/1Fs-XeZHa6X0IRX_cQAkv03Gll0JKEE5K0V-1vthmCTM/edit?usp=sharing" target="_blank" rel="noreferrer"><span>PUBLICIE // OCKHAM ↗</span><strong>JoJo Article</strong><small>Read the article in Google Docs</small></a><a class="resource-card" href="https://docs.google.com/document/d/1Qspr6xqqKeJu4Min-t9bEXRwias9wFu5ewjrJQ12jtE/edit?usp=sharing" target="_blank" rel="noreferrer"><span>PUBLICIE ↗</span><strong>Student Protest Article</strong><small>Read the article in Google Docs</small></a></div></section>
+      </section>
+
+      <section id="contact" class="view" aria-labelledby="contact-title">
+        <div class="section-kicker">05 // CONTACT <span>CALLING CARD</span></div>
+        <div class="calling-card"><div class="card-slice"></div><p class="mono">PHANTOM SIGNAL // HEDI TRABELSI</p><h2 id="contact-title">CALLING<br /><em>CARD</em></h2><p>Direct lines to the profile.</p><div class="contact-links"><a href="mailto:heditrabelsi07@gmail.com"><span>EMAIL</span>heditrabelsi07@gmail.com ↗</a><button id="copy-email-card" type="button"><span>CLIPBOARD</span>COPY EMAIL ↗</button><a href="tel:+31645096671"><span>PHONE</span>+31 6 45096671 ↗</a><a href="https://www.linkedin.com/in/hedi-trabelsi-0a0081241/" target="_blank" rel="noreferrer"><span>LINKEDIN</span>/in/hedi-trabelsi-0a0081241 ↗</a><a href="https://instagram.com/hedi.trbs" target="_blank" rel="noreferrer"><span>INSTAGRAM</span>@hedi.trbs ↗</a></div><strong class="card-mark">H.T</strong></div>
+      </section>
+    </main>
+
+    <div id="mission-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title"><div class="modal-backdrop" data-close-modal></div><div class="dossier"><button class="modal-close" type="button" aria-label="Close dossier" data-close-modal>×</button><div class="dossier-top"><span id="modal-number">MISSION 01</span><span>CLASSIFIED // PROFILE ARCHIVE</span></div><h2 id="modal-title"></h2><p id="modal-summary" class="dossier-summary"></p><div id="modal-content" class="dossier-content"></div></div></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
   </body>
 </html>

@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hedi Trabelsi — Technical Minimalism Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Hedi Trabelsi — Technical Computer Science student focused on systems, security, full-stack engineering, and philosophy."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="sr-only">
+        <h1>Hedi Trabelsi Portfolio</h1>
+      </header>
+
+      <main class="bento-grid" id="portfolio-grid">
+        <section class="card hero-card" aria-labelledby="hero-title">
+          <div class="hero-heading">
+            <div>
+              <h2 id="hero-title">Hedi Trabelsi</h2>
+              <span class="badge">He/Him</span>
+            </div>
+            <p class="headline">
+              BSc Technical Computer Science Student @ University of Twente | Philosophy Track Student Ambassador
+              (2026–2027) @ Honours Association Ockham
+            </p>
+          </div>
+
+          <p class="hero-summary">
+            I build at the intersection of low-level systems engineering, network security, and pragmatic full-stack
+            software for real-world constraints. My work is grounded in ethical and philosophical inquiry so technical
+            architecture remains accountable, human-centered, and durable.
+          </p>
+
+          <div class="hero-status-row">
+            <div class="status-chip">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Enschede, Overijssel, Netherlands</span>
+            </div>
+            <time id="live-clock" datetime="" aria-live="polite">--:--:--</time>
+          </div>
+
+          <div class="cta-row">
+            <button id="copy-email" class="button button-primary" type="button">Copy Email</button>
+            <a class="button" href="https://www.linkedin.com/in/hedi-trabelsi-0a0081241/" target="_blank" rel="noreferrer"
+              >LinkedIn</a
+            >
+            <button id="open-writing" class="button" type="button">Selected Writing</button>
+          </div>
+
+          <ul class="highlights" aria-label="Education and honors highlights">
+            <li>BSc TCS @ UTwente</li>
+            <li>Honours Philosophy Ambassador 26–27</li>
+            <li>Bac 17/20</li>
+          </ul>
+        </section>
+
+        <section class="card market-card" aria-labelledby="market-title">
+          <div class="card-head">
+            <h2 id="market-title">Ockham Beer Stock Market Simulator</h2>
+            <span class="meta">Node.js · Express · Socket.io · SQLite · Vue 3</span>
+          </div>
+          <p class="card-copy">
+            Inspired by my real-time WebSocket pricing app for Ockham's Dricie committee. Buy pressure raises local
+            demand while redistributing market prices across the board.
+          </p>
+
+          <svg class="sparkline" viewBox="0 0 360 88" role="img" aria-label="Market trend sparkline">
+            <polyline id="market-line" points="" />
+          </svg>
+
+          <div class="market-meta">
+            <span>Next tick in <strong id="tick-countdown">5s</strong></span>
+            <button class="button crash" id="market-crash" type="button">Market Crash</button>
+          </div>
+
+          <ul class="drink-list" id="drink-list"></ul>
+        </section>
+
+        <section class="card projects-card" aria-labelledby="projects-title">
+          <div class="card-head">
+            <h2 id="projects-title">Engineering, Systems & Hackathon Projects</h2>
+            <div class="filter-row" role="tablist" aria-label="Project categories">
+              <button class="filter active" type="button" data-filter="all">All</button>
+              <button class="filter" type="button" data-filter="systems">Systems & Security</button>
+              <button class="filter" type="button" data-filter="ai">AI & Hardware</button>
+              <button class="filter" type="button" data-filter="fullstack">Full-Stack & Games</button>
+            </div>
+          </div>
+          <div class="project-grid" id="project-grid"></div>
+        </section>
+
+        <section class="card skills-card" aria-labelledby="skills-title">
+          <div class="card-head">
+            <h2 id="skills-title">Tech Stack & Skills</h2>
+          </div>
+          <div class="skill-groups">
+            <article>
+              <h3>Languages & Low-Level</h3>
+              <div class="tags">
+                <span>C</span><span>C++</span><span>Java</span><span>Python</span><span>Assembly (MIPS/Hack)</span
+                ><span>HDL</span><span>Solidity</span>
+              </div>
+            </article>
+            <article>
+              <h3>Web & Databases</h3>
+              <div class="tags">
+                <span>JavaScript</span><span>Vue.js</span><span>Node.js</span><span>Express</span><span>SQL</span
+                ><span>PostgreSQL</span><span>SQLite</span><span>HTML/CSS</span>
+              </div>
+            </article>
+            <article>
+              <h3>Tools & Networking</h3>
+              <div class="tags">
+                <span>Linux</span><span>Wireshark</span><span>Filius</span><span>Git</span><span>LaTeX</span
+                ><span>Overleaf</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="card education-card" aria-labelledby="education-title">
+          <div class="card-head">
+            <h2 id="education-title">Education, Honors & Leadership</h2>
+          </div>
+          <div class="timeline">
+            <article>
+              <h3>University of Twente — Bachelor's in Technical Computer Science</h3>
+              <p class="meta">Sept 2025 – Aug 2028 · Enschede, Netherlands</p>
+              <p>Activities: Inter-Actief (study association), Honours Association Ockham.</p>
+            </article>
+            <article>
+              <h3>University of Twente — Honours Programme in Philosophy</h3>
+              <p class="meta">Selected / Issued Feb 2026</p>
+            </article>
+            <article>
+              <h3>Lycée Gustave Flaubert (La Marsa, Tunisia)</h3>
+              <p class="meta">2013 – June 2025 · French Baccalauréat Général</p>
+              <p>
+                Mathematics & Computer Science with Mathématiques Expertes — Grade 17/20 (Mention Très Bien). Activities:
+                Tounes El Khadhra, Club Inge.
+              </p>
+            </article>
+            <article>
+              <h3>Honours Association Ockham — Philosophy Track Student Ambassador</h3>
+              <p class="meta">Oct 2026 – Present</p>
+              <p>Liaison between Ockham board, Honours Office, track teachers, and fellow ambassadors.</p>
+            </article>
+            <article>
+              <h3>Dricie Committee (Ockham)</h3>
+              <p class="meta">Campus events</p>
+              <p>Event organization and full-stack engineering for campus social events.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="card contact-card" aria-labelledby="contact-title">
+          <div class="card-head">
+            <h2 id="contact-title">Contact, Socials & Languages</h2>
+          </div>
+          <ul class="contact-list">
+            <li><span>Email</span> <a href="mailto:heditrabelsi07@gmail.com">heditrabelsi07@gmail.com</a></li>
+            <li>
+              <span>LinkedIn</span>
+              <a href="https://www.linkedin.com/in/hedi-trabelsi-0a0081241/" target="_blank" rel="noreferrer"
+                >/in/hedi-trabelsi-0a0081241</a
+              >
+            </li>
+            <li><span>Instagram</span> <a href="https://instagram.com/hedi.trbs" target="_blank" rel="noreferrer">@hedi.trbs</a></li>
+            <li><span>GitHub</span> <a href="#" aria-label="GitHub placeholder link">Add repo URL</a></li>
+            <li><span>GitLab</span> <a href="#" aria-label="GitLab placeholder link">Add repo URL</a></li>
+          </ul>
+          <ul class="language-list">
+            <li>French — Native</li>
+            <li>English — Professional Working Proficiency (Duolingo 129)</li>
+            <li>Spanish — Limited Working Proficiency (Duolingo 60)</li>
+            <li>Dutch — Elementary</li>
+          </ul>
+        </section>
+
+        <section class="card writing-card" aria-labelledby="writing-title">
+          <div class="card-head">
+            <h2 id="writing-title">Selected Writing & Philosophy</h2>
+          </div>
+          <ul id="writing-list" class="writing-list"></ul>
+        </section>
+      </main>
+    </div>
+
+    <aside id="essay-drawer" class="drawer" aria-hidden="true" aria-labelledby="drawer-title" role="dialog">
+      <div class="drawer-panel">
+        <button id="close-drawer" class="drawer-close" type="button" aria-label="Close reading drawer">×</button>
+        <h2 id="drawer-title"></h2>
+        <p class="meta" id="drawer-readtime"></p>
+        <h3>Abstract</h3>
+        <p id="drawer-abstract"></p>
+        <h3>Key Thesis</h3>
+        <p id="drawer-thesis"></p>
+      </div>
+      <button id="drawer-backdrop" class="drawer-backdrop" type="button" aria-label="Close drawer backdrop"></button>
+    </aside>
+
+    <div id="toast" class="toast" role="status" aria-live="polite">Copied email to clipboard</div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

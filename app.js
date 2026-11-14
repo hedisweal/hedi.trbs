@@ -48,6 +48,18 @@ function updateHud() {
   $("#hud-date").textContent = `${dateValues.month} / ${dateValues.day} ${dateValues.weekday.toUpperCase()}`;
 }
 
+function updateAge() {
+  const badge = document.getElementById("age-badge");
+  if (!badge) return;
+  const birth = new Date(`${badge.dataset.birth}T00:00:00`);
+  const now = new Date();
+  let age = now.getFullYear() - birth.getFullYear();
+  const birthdayPassed = now.getMonth() > birth.getMonth()
+    || (now.getMonth() === birth.getMonth() && now.getDate() >= birth.getDate());
+  if (!birthdayPassed) age -= 1;
+  badge.textContent = `${age} YEARS`;
+}
+
 function showToast(message) {
   const toast = $("#toast");
   toast.textContent = message;
@@ -136,8 +148,38 @@ function toggleTheme() {
   showToast(themeBlue ? "P3 RELOAD CYAN // ACTIVE" : "P5 CRIMSON // ACTIVE");
 }
 
+function completeEntry() {
+  const gate = document.getElementById("entry-gate");
+  if (!gate || gate.classList.contains("is-exiting")) return;
+  sessionStorage.setItem("persona_intro_seen", "true");
+  gate.classList.add("is-exiting");
+  setTimeout(() => {
+    gate.classList.add("is-hidden");
+    document.body.classList.remove("gate-locked");
+  }, 1450);
+}
+
+function setupEntryGate() {
+  const gate = document.getElementById("entry-gate");
+  if (!gate) return;
+  const start = () => completeEntry();
+  document.getElementById("press-start").addEventListener("click", start);
+  document.getElementById("entry-skip").addEventListener("click", start);
+  document.addEventListener("keydown", (event) => {
+    if ((event.key === "Enter" || event.key === " ") && !gate.classList.contains("is-hidden")) {
+      event.preventDefault();
+      start();
+    }
+  });
+  if (sessionStorage.getItem("persona_intro_seen") === "true") {
+    gate.classList.add("is-hidden");
+    document.body.classList.remove("gate-locked");
+  }
+}
+
 function init() {
   updateHud();
+  updateAge();
   setInterval(updateHud, 1000);
   renderMissions();
   setupNavigation();
@@ -145,6 +187,11 @@ function init() {
   $("#copy-email").addEventListener("click", copyEmail);
   $("#copy-email-card").addEventListener("click", copyEmail);
   $("#theme-toggle").addEventListener("click", toggleTheme);
+  $("#replay-intro").addEventListener("click", () => {
+    sessionStorage.removeItem("persona_intro_seen");
+    window.location.reload();
+  });
+  setupEntryGate();
   const initial = location.hash.slice(1);
   if (initial && $(`#${initial}`)) navigate(initial);
 }

@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="assets/hedi-blue.png" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="polish.css" />
     <style>
@@ -17,7 +19,19 @@
     </style>
     <script src="app.js" defer></script>
   </head>
-  <body>
+  <body class="gate-locked">
+    <div id="entry-gate" class="entry-gate" role="dialog" aria-modal="true" aria-labelledby="entry-title">
+      <div class="entry-atmosphere" aria-hidden="true"><i></i><i></i><i></i><svg viewBox="0 0 160 160"><path d="M80 5l9 54 46-29-29 46 49 9-49 9 29 46-46-29-9 54-9-54-46 29 29-46-49-9 49-9-29-46 46 29z"/></svg></div>
+      <button id="entry-skip" class="entry-skip" type="button">[ SKIP &gt;&gt; ]</button>
+      <div class="calling-card-entry">
+        <span class="entry-tag">SYS.BOOT // ENSCHEDE_NODE_26</span>
+        <h1 id="entry-title"><span>HEDI</span> <em>TRABELSI</em></h1>
+        <p>PERSONA PROFILE // SECURE CHANNEL READY</p>
+        <button id="press-start" class="press-start" type="button">[ PRESS START / ENTER PORTFOLIO ]</button>
+      </div>
+      <strong class="entry-stamp">ACCESS GRANTED!</strong>
+      <div class="entry-shards" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
     <div class="background-shards" aria-hidden="true"><i></i><i></i><i></i><i></i><svg viewBox="0 0 160 160"><path d="M80 5l9 54 46-29-29 46 49 9-49 9 29 46-46-29-9 54-9-54-46 29 29-46-49-9 49-9-29-46 46 29z"/></svg></div>
     <div id="screen-wipe" class="screen-wipe" aria-hidden="true"><span></span><i></i></div>
 
@@ -29,7 +43,7 @@
         <span class="weather">✦ CLEAR // ONLINE</span>
       </div>
       <div class="hud-brand">HEDI<span>.TRBS</span><small>PERSONA PROFILE</small></div>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">[ P3 RELOAD CYAN ]</button>
+      <div class="hud-actions"><button id="replay-intro" class="replay-intro" type="button">[ REPLAY INTRO ]</button><button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">[ P3 RELOAD CYAN ]</button></div>
     </header>
 
     <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">MENU <b>☰</b></button>
@@ -47,7 +61,7 @@
         <div class="section-kicker">01 // PROFILE <span>ARCANA: THE ENGINEER</span></div>
         <div class="profile-layout">
           <div class="profile-intro">
-            <p class="identity">TUNISIAN BELGIAN <span>· HE / HIM</span></p>
+            <p class="identity">🇹🇳 🇧🇪 <span>TUNISIAN BELGIAN · HE / HIM · <b id="age-badge" data-birth="2007-03-03">19 YEARS</b></span></p>
             <h1 id="profile-title"><span>HEDI</span><em>TRABELSI</em></h1>
             <p class="profile-title">Curiosity fuels my Knowledge, human interaction shapes my Charm, and building systems sharpens my Proficiency.</p>
             <blockquote>I'm Hedi, a curious and insightful human being eager for knowledge and human interaction. I have always wanted to create new things and become a kind of inventor. In high school, I discovered through my Computer Science speciality a passion for computer science and decided to pursue my studies at the University of Twente in this domain.</blockquote>

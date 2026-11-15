@@ -107,10 +107,17 @@ function closeModal() {
   document.body.style.overflow = "";
 }
 
-function navigate(viewName) {
+function navigate(viewName, animate = true) {
   const current = $(".view.active");
   const next = $(`#${viewName}`);
   if (!next || current === next) return;
+  if (!animate) {
+    current.classList.remove("active");
+    next.classList.add("active");
+    $$(".nav-item").forEach((item) => item.classList.toggle("active", item.dataset.view === viewName));
+    $("#main-nav").classList.remove("open");
+    return;
+  }
   const wipe = $("#screen-wipe");
   wipe.classList.remove("play");
   void wipe.offsetWidth;
@@ -193,7 +200,7 @@ function init() {
   });
   setupEntryGate();
   const initial = location.hash.slice(1);
-  if (initial && $(`#${initial}`)) navigate(initial);
+  if (initial && $(`#${initial}`)) navigate(initial, false);
 }
 
 init();

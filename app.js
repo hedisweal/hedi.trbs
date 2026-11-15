@@ -37,6 +37,7 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 let activeMission = missions[0];
 let themeBlue = false;
+let musicStarted = false;
 
 function updateHud() {
   const now = new Date();
@@ -169,7 +170,10 @@ function completeEntry() {
 function setupEntryGate() {
   const gate = document.getElementById("entry-gate");
   if (!gate) return;
-  const start = () => completeEntry();
+  const start = () => {
+    startMusic();
+    completeEntry();
+  };
   document.getElementById("press-start").addEventListener("click", start);
   document.getElementById("entry-skip").addEventListener("click", start);
   document.addEventListener("keydown", (event) => {
@@ -184,6 +188,43 @@ function setupEntryGate() {
   }
 }
 
+function startMusic() {
+  const music = $("#background-music");
+  if (!music || musicStarted || music.muted) return;
+  music.volume = Number($("#music-volume").value);
+  music.play().then(() => {
+    musicStarted = true;
+  }).catch(() => {
+    showToast("MUSIC FILE UNAVAILABLE // ADD COLOR-YOUR-NIGHT.MP3");
+  });
+}
+
+function setupMusic() {
+  const music = $("#background-music");
+  const toggle = $("#music-toggle");
+  const volume = $("#music-volume");
+  if (!music || !toggle || !volume) return;
+  music.volume = Number(volume.value);
+  toggle.addEventListener("click", () => {
+    music.muted = !music.muted;
+    toggle.textContent = music.muted ? "[ MUSIC: OFF ]" : "[ MUSIC: ON ]";
+    toggle.setAttribute("aria-pressed", String(!music.muted));
+    if (!music.muted) startMusic();
+  });
+  volume.addEventListener("input", () => {
+    music.volume = Number(volume.value);
+    if (music.volume > 0 && music.muted) {
+      music.muted = false;
+      toggle.textContent = "[ MUSIC: ON ]";
+      toggle.setAttribute("aria-pressed", "true");
+    }
+    if (music.volume > 0) startMusic();
+  });
+  music.addEventListener("error", () => showToast("MUSIC FILE UNAVAILABLE // ADD COLOR-YOUR-NIGHT.MP3"));
+  document.addEventListener("pointerdown", startMusic, { once: true });
+  document.addEventListener("keydown", startMusic, { once: true });
+}
+
 function init() {
   updateHud();
   updateAge();
@@ -194,6 +235,7 @@ function init() {
   $("#copy-email").addEventListener("click", copyEmail);
   $("#copy-email-card").addEventListener("click", copyEmail);
   $("#theme-toggle").addEventListener("click", toggleTheme);
+  setupMusic();
   $("#replay-intro").addEventListener("click", () => {
     sessionStorage.removeItem("persona_intro_seen");
     window.location.reload();

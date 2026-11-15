@@ -20,6 +20,7 @@ Designed with a custom UI inspired by the dynamic menus and visual direction of 
   * **Mission 03 — Networked Quarto & AI Engine:** Multi-threaded Java implementation with bitwise board evaluation and Minimax + Alpha-Beta pruning (`2nd Place // Tournament`).
   * **Mission 04 — EUDIS Defence Hackathon:** European Commission defence & cybersecurity innovation challenge.
 * **Accessibility & Motion Discipline:** Full keyboard navigation (`Tab`, `Enter`, `Space`, `Escape`), high-contrast `:focus-visible` states, and automatic support for `prefers-reduced-motion`.
+* **Background Music:** Optional low-volume looping playback for `Color Your Night`, with mute and volume controls in the HUD. Browsers start playback from the entry interaction to comply with autoplay policies.
 
 ---
 
@@ -37,7 +38,8 @@ Designed with a custom UI inspired by the dynamic menus and visual direction of 
 ```text
 ├── assets/
 │   ├── favicon.ico          # Browser favicon
-│   └── hedi-blue.png        # Brand icon
+│   ├── hedi-blue.png        # Brand icon
+│   └── color-your-night.mp3 # Locally supplied music file
 ├── index.html               # Main application markup & views
 ├── styles.css               # Core layout, Persona grid, components & responsive rules
 ├── polish.css               # Entry gate, kinetic animations, halftone textures & polish
